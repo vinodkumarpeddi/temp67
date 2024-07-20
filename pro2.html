@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maze Game</title><style>body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    #maze {
+        display: grid;
+        grid-template-columns: repeat(10, 50px);
+        grid-template-rows: repeat(10, 50px);
+        gap: 1px;
+        background-color: #eee;
+    }
+
+    .cell {
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }
+
+    .cell.start {
+        background-color: green;
+    }
+
+    .cell.end {
+        background-color: red;
+    }
+
+    .cell.wall {
+        background-color: #000;
+    }
+
+    .cell.player {
+        background-color: blue;
+    }</style></head>
+<body>
+
+<div id="maze"></div> <script src="data:text/javascript;base64,Y29uc3QgbWF6ZT1bWzEsMSwxLDAsMSwwLDEsMSwxLDFdLFsxLDAsMSwxLDEsMSwxLDAsMCwxXSxbMSwwLDAsMCwwLDAsMSwxLDEsMV0sWzEsMSwxLDEsMSwwLDAsMSwwLDFdLFsxLDAsMCwwLDEsMSwxLDEsMSwwXSxbMSwwLDEsMSwxLDAsMCwwLDAsMF0sWzEsMSwxLDAsMSwxLDEsMSwwLF0sWzEsMCwxLDAsMSwwLDAsMSwxLDFdLFsxLDEsMSwwLDEsMSwxLDEsMCwxXSxbMSwxLDEsMCwxLDEsMSwwLDEsMV1dO2NvbnN0IG1hemVFbGVtZW50PWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdtYXplJyk7ZnVuY3Rpb24gY3JlYXRlTWF6ZSgpe2ZvcihsZXQgaT0wO2k8bWF6ZS5sZW5ndGg7aSsrKXtmb3IobGV0IGo9MDtqPG1hemVbaV0ubGVuZ3RoO2orKyl7Y29uc3QgY2VsbD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTtjZWxsLmNsYXNzTGlzdC5hZGQoJ2NlbGwnKTtpZihtYXplW2ldW2pdPT09MCl7Y2VsbC5jbGFzc0xpc3QuYWRkKCd3YWxsJyl9ZWxzZSBpZihpPT09MCYmaj09PTApe2NlbGwuY2xhc3NMaXN0LmFkZCgnc3RhcnQnKX1lbHNlIGlmKGk9PT1tYXplLmxlbmd0aC0xJiZqPT09bWF6ZVtpXS5sZW5ndGgtMSl7Y2VsbC5jbGFzc0xpc3QuYWRkKCdlbmQnKX0KbWF6ZUVsZW1lbnQuYXBwZW5kQ2hpbGQoY2VsbCl9fX0KZnVuY3Rpb24gbW92ZVBsYXllcihldmVudCl7Y29uc3Qga2V5PWV2ZW50LmtleTtsZXQgcGxheWVyUG9zaXRpb249ZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLnBsYXllcicpO2xldFtyb3csY29sXT1nZXRQbGF5ZXJQb3NpdGlvbihwbGF5ZXJQb3NpdGlvbik7bGV0IG5ld1Jvdz1yb3c7bGV0IG5ld0NvbD1jb2w7c3dpdGNoKGtleSl7Y2FzZSAnQXJyb3dVcCc6bmV3Um93PXJvdy0xO2JyZWFrO2Nhc2UgJ0Fycm93RG93bic6bmV3Um93PXJvdysxO2JyZWFrO2Nhc2UgJ0Fycm93TGVmdCc6bmV3Q29sPWNvbC0xO2JyZWFrO2Nhc2UgJ0Fycm93UmlnaHQnOm5ld0NvbD1jb2wrMTticmVhaztkZWZhdWx0OnJldHVybn0KaWYoaXNWYWxpZE1vdmUobmV3Um93LG5ld0NvbCkpe3BsYXllclBvc2l0aW9uLmNsYXNzTGlzdC5yZW1vdmUoJ3BsYXllcicpO21hemVFbGVtZW50LmNoaWxkcmVuW25ld1JvdyptYXplLmxlbmd0aCtuZXdDb2xdLmNsYXNzTGlzdC5hZGQoJ3BsYXllcicpfQppZihuZXdSb3c9PT1tYXplLmxlbmd0aC0xJiZuZXdDb2w9PT1tYXplW25ld1Jvd10ubGVuZ3RoLTEpe2FsZXJ0KCdZb3Ugd29uIScpO3dpbmRvdy5yZW1vdmVFdmVudExpc3RlbmVyKCdrZXlkb3duJyxtb3ZlUGxheWVyKX19CmZ1bmN0aW9uIGdldFBsYXllclBvc2l0aW9uKHBsYXllclBvc2l0aW9uKXtjb25zdCBpbmRleD1BcnJheS5mcm9tKG1hemVFbGVtZW50LmNoaWxkcmVuKS5pbmRleE9mKHBsYXllclBvc2l0aW9uKTtjb25zdCByb3c9TWF0aC5mbG9vcihpbmRleC9tYXplLmxlbmd0aCk7Y29uc3QgY29sPWluZGV4JW1hemUubGVuZ3RoO3JldHVybltyb3csY29sXX0KZnVuY3Rpb24gaXNWYWxpZE1vdmUocm93LGNvbCl7cmV0dXJuIHJvdz49MCYmcm93PG1hemUubGVuZ3RoJiZjb2w+PTAmJmNvbDxtYXplW3Jvd10ubGVuZ3RoJiZtYXplW3Jvd11bY29sXSE9PTB9CmNyZWF0ZU1hemUoKTttYXplRWxlbWVudC5jaGlsZHJlblswXS5jbGFzc0xpc3QuYWRkKCdwbGF5ZXInKTt3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcigna2V5ZG93bicsbW92ZVBsYXllcik=" defer></script> </body>
+</html>

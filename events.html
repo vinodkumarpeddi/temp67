@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <style>
+            th{
+                text-align: start;
+            }
+            h2{
+                text-align: center;
+            }
+            table{
+                text-align: center;
+            }
+            button{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Student Survey Form</h2>
+        <table>
+            <tr>
+                <th>Name:</th>
+                <td><input type="text" placeholder="enter name" onchange="nam(event)"></td>
+            </tr>
+            <tr>
+                <th>Roll No:</th>
+                <td><input type="number" placeholder="ID" onchange="roll(event)"></td>
+            </tr>
+            <tr>
+                <th>Email ID:</th>
+                <td><input type="email" placeholder="email address" onchange="mail(event)"></td>
+            </tr>
+            <tr>
+                <th>College:</th>
+                <td><input type="text" placeholder="clg name" onchange="clg(event)"></td>
+            </tr>
+        </table>
+        <button onclick="update(event)">SUBMIT</button>
+        <button type="reset" onclick="reseter()">Reset</button>
+        <script>
+        var data={
+            nam:"",
+            roll:"",
+            mail:"",
+            clg:"",
+        }
+            function nam(event){
+                data.nam=event.target.value;
+            }
+            function roll(event){
+                data.roll=event.target.value;
+            }
+            function mail(event){
+                data.mail=event.target.value;
+            }
+            function clg(event){
+                data.clg=event.target.value;
+            }
+            function update(event){
+                alert("your form updated successfully");
+                event.preventDefault();
+                console.log(data);
+            }
+        </script>
+    </body>
+</html>

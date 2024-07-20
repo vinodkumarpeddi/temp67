@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <body>
+            <script>
+
+                var s=parseInt(prompt("Enter the number"));
+                function grades(n)
+                {
+                    var grade;
+                    if(n>90 && n<=100)
+                    {
+                        grade='A';
+                    }
+                    else if(n>80 && n<=90)
+                    {
+                        grade='B';
+                    }
+                    else if(n>70 && n<=80)
+                    {
+                        grade='C';
+                    }
+                    else if(n>60 && n<=70)
+                    {
+                        grade='D';
+                    }
+                    else{
+                        grade='fail';
+                    }
+                    return grade;
+                }
+            console.log(grades(s));
+            </script>
+        </body>
+    </head>
+</html>

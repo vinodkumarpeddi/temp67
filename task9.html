@@ -1,0 +1,181 @@
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .parent3 {
+            width: 100%;
+            height: fit-content;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            gap: 40px;
+         
+        }
+
+        .child1 {
+            width: 35%;
+            height: 80%;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: anime 3s ease infinite;
+         
+
+        }
+
+        .child2 {
+            width: 50%;
+            height: 90%;
+            /* border: 1px solid black; */
+            display: flex;
+            align-items: center;
+             justify-content: center;
+        }
+
+        .img {
+            width: 85%;
+            height: 80%;
+            /* border: 1px solid black; */
+        }
+
+        .img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .child3 {
+            width: 80%;
+            height: 80%;
+            /* border: 1px solid black; */
+            display: flex;
+            margin-left: 10px;
+            flex-direction: column;
+            justify-content: space-around;
+           
+        }
+
+        .tech {
+
+            word-spacing: 10%;
+            font-size: 20px;
+            color: aqua;
+            letter-spacing: 4px;
+
+        }
+
+        .virtual {
+            width: 100%;
+            height: fit-content;
+            font-size: 70px;
+            /* border: 1px solid black; */
+            text-transform: capitalize;
+            letter-spacing: 10px;
+        }
+
+        .text {
+            width: 80%;
+            /* border: 1px solid black; */
+            font-size: 20px;
+            text-align: justify;
+        }
+        .free{
+            font-size: 20px;
+            height: 40px;
+            /* border: 1px solid black; */
+            border-bottom: 3px solid #FFFFFF;
+            
+        }
+        span{
+            color: blue;
+        }
+        .bulb{
+            width: 60%;
+            height: 120px;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            gap: 20px;
+           
+            
+        }
+       
+        .circle{
+            width: 60px;
+            height: 60px;
+            border: 1px solid black;
+            border-radius: 100%;
+            background-color:#F0EDFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .div{
+            width: 45%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+           align-items: center;
+        }
+        .hub{
+            display: flex;
+            flex-direction: column;
+        }
+       @keyframes anime {
+             50%{
+                      transform: translateY(20px);
+                      
+             }
+             75%{
+                transform: translateX(20px);
+             }
+             80%{
+                transform: translateX(-20px);
+             }
+             100%{
+                transform: translateY(-30px);
+             }
+        
+       }
+       @media screen and (min-width:768) {
+           .hub{
+              display: flex;
+              flex-direction: row;
+           }
+       }
+    </style>
+</head>
+
+<body>
+    <div class="parent3">
+        <div class="child1">
+            <div class="img"><img src="./img.png"></div>
+        </div>
+        <div class="child2">
+            <div class="child3">
+                <div class="tech">TECHNOLOGY</div>
+                <div class="virtual">virtual Reality</div>
+                <div class="text">
+                    <p>There are only some symptoms such as dizziness,depression
+                        and collapse that appear while the VR experience.The
+                        technology is still new and requires investigation and research.</p>
+                </div>
+                <div class="free">Image from <span>Freepik</span></div>
+               <div class="hub"><div class="bulb"><div class="div"><div class="circle"><img src="./bulb.png"></div></div>
+            <div class="sample_text"><p>Sample text. Ciick to select the text box. Click again or double click to start editing the text.Duis aute irure dolor.</p></div></div>
+            <div class="bulb"><div class="div"><div class="circle"><img src="./mic.png"></div></div>
+            <div class="sample_text"><p>Sample text. Ciick to select the text box. Click again or double click to start editing the text.Duis aute irure dolor.</p></div></div>
+            </div></div>
+           
+        </div>
+    </div>
+</body>
+
+</html>

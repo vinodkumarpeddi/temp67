@@ -1,0 +1,69 @@
+<html>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #timer{
+            font-size: 120px;
+            margin-top: 150px;
+        }
+        button{
+            font-size: 20px;
+            margin: 10px;
+            margin-left: 53px;
+            margin-top: 20px;
+        }
+    </style>
+    <body>
+        <div class="timer">
+            <div id="timer">00:00:00</div>
+            <button onclick="startTimer()">Start</button>
+            <button onclick="stopTimer()">Stop</button>
+            <button onclick="resetTimer()">Reset</button>
+        </div>
+        <script>
+            var timer;
+            var hours = 0;
+            var minutes = 0;
+            var seconds = 0;
+            function startTimer() {
+                if (!timer) {
+                    timer = setInterval(updateTimer, 1000);
+                }
+            }
+            function stopTimer() {
+                clearInterval(timer);
+                timer = null;
+            }
+            function resetTimer() {
+                clearInterval(timer);
+                timer = null;
+                hours = 0;
+                minutes = 0;
+                seconds = 0;
+                updateTimerDisplay();
+            }
+            function updateTimer() {
+                seconds++;
+                if (seconds === 60) {
+                    seconds = 0;
+                    minutes++;
+                }
+                if (minutes === 60) {
+                    minutes = 0;
+                    hours++;
+                }
+                updateTimerDisplay();
+            }
+            function updateTimerDisplay() {
+                document.getElementById('timer').innerHTML = (hours < 10 ? '0' + hours : hours) + ':' + 
+                       (minutes < 10 ? '0' + minutes : minutes) + ':' + 
+                       (seconds < 10 ? '0' + seconds : seconds);
+            }
+            updateTimerDisplay();
+        </script>
+    </body>
+</html>

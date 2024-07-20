@@ -1,0 +1,201 @@
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .dog_par {
+            width: 100%;
+            height: 100svh;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to bottom left, #F7B7B7, #F7B7B7);
+
+        }
+
+        .child1 {
+            width: 50%;
+            height: 100svh;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 20px;
+
+        }
+
+        .child2 {
+            width: 50%;
+            height: auto;
+            /* border: 1px solid black; */
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .dog_pic {
+            width: 70%;
+            height: 85svh;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .boxes {
+            width: 70%;
+            height: 85svh;
+            /* border: 1px solid black; */
+        }
+
+        .set1_box {
+            width: 100%;
+            height: 50%;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* flex-wrap: wrap; */
+        }
+
+        .set2_box {
+            width: 100%;
+            height: 50%;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* flex-wrap: wrap; */
+        }
+
+        .box1 {
+            width: 240px;
+            height: 290px;
+            /* border: 1px solid rgb(247, 243, 243); */
+            border-radius: 30px;
+            background-color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            transition: all 2s ease infinite;
+        }
+
+        .box2 {
+            width: 240px;
+            height: 290px;
+            /* border: 1px solid black; */
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content {
+            width: 180px;
+            height: 220px;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .tit {
+            font-size: 25px;
+            text-transform: capitalize;
+        }
+
+        .view {
+            text-transform: capitalize;
+            border-bottom: 2px solid rgb(17, 17, 17);
+            width: fit-content;
+        }
+
+        .box1:hover {
+            transform: scale(1.08);
+        }
+
+        .box2:hover {
+            transform: scale(1.08);
+        }
+
+        @media screen and ((min-width:320px) and (max-width:395px)) {
+            .dog_par {
+                flex-direction: column;
+                width: 50%;
+                height: 50svh;
+            }
+        }
+
+        @media screen and ((min-width:420px) and (max-width:765px)) {
+            .dog_par {
+                flex-direction: column;
+                width: 50%;
+                height: 50svh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dog_par">
+        <div class="child1">
+            <div class="dog_pic"><img src="./dog.png"></div>
+        </div>
+        <div class="child2">
+            <div class="boxes">
+                <div class="set1_box">
+                    <div class="box1" onmouseenter="myFun1()" onmouseleave="myFun1()">
+                        <div class="content">
+                            <div class="tit">our traingings</div>
+                            <div class="con">Sample text.click to select the text box.Click again or double click to
+                                start editing the text.</div>
+                            <div class="view" style="border-bottom: 2px solid white;">view more</div>
+                        </div>
+                    </div>
+                    <div class="box2" onmouseenter="myFun()" onmouseleave="myFun1()">
+                        <div class="content">
+                            <div class="tit">what we do</div>
+                            <div class="con">Sample text.click to select the text box.Click again or double click to
+                                start editing the text.</div>
+                            <div class="view">view more</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="set2_box">
+                    <div class="box2" onmouseenter="myFun()" onmouseleave="myFun()">
+                        <div class="content">
+                            <div class="tit">how it works</div>
+                            <div class="con">Sample text.click to select the text box.Click again or double click to
+                                start editing the text.</div>
+                            <div class="view">view more</div>
+                        </div>
+                    </div>
+                    <div class="box1" onmouseenter="myFun1()" onmouseleave="myFun1()">
+                        <div class="content">
+                            <div class="tit" style="font-size: 23px; ">skills for lifetime</div>
+                            <div class="con">Sample text.click to select the text box.Click again or double click to
+                                start editing the text.</div>
+                            <div class="view" style="border-bottom: 2px solid white;">view more</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="day_two.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Table</title>
+  <style>
+    #table-container {
+      display: none;
+    }
+    table,th,tr,td{
+      border: 1px solid red;
+      border-collapse: collapse;
+
+    }
+    table{
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">Click me!</button>
+  <div id="table-container"></div>
+
+  <script>
+    let tableCreated = false;
+    let tableData = [];
+
+    document.getElementById('btn').addEventListener('click', function() {
+      if (!tableCreated) {
+        createTable();
+        tableCreated = true;
+      } else {
+        promptDataEntry();
+      }
+    });
+
+    function createTable() {
+  const table = document.createElement('table');
+  table.border = '1';
+  const tableHead = document.createElement('thead');
+  const tableBody = document.createElement('tbody');
+
+  tableHead.innerHTML = `
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Occupation</th>
+      <th>Actions</th>
+    </tr>
+  `;
+
+  table.appendChild(tableHead);
+  table.appendChild(tableBody);
+  document.getElementById('table-container').appendChild(table);
+  document.getElementById('table-container').style.display = 'block';
+
+  // Add initial data
+  const initialData = [
+    { name: 'John Doe', age: 30, occupation: 'Software Engineer' },
+    { name: 'Jane Smith', age: 25, occupation: 'Marketing Manager' },
+    { name: 'Bob Johnson', age: 40, occupation: 'Sales Representative' }
+  ];
+
+  tableData = initialData;
+  updateTable();
+}
+    function promptDataEntry() {
+      const name = prompt('Enter name:');
+      const age = prompt('Enter age:');
+      const occupation = prompt('Enter occupation:');
+
+      if (name && age && occupation) {
+        tableData.push({ name, age, occupation });
+        updateTable();
+      }
+    }
+
+    function updateTable() {
+      const tableBody = document.querySelector('tbody');
+      tableBody.innerHTML = '';
+
+      tableData.forEach((data, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${data.name}</td>
+          <td>${data.age}</td>
+          <td>${data.occupation}</td>
+          <td>
+            <button onclick="updateRow(${index})">Update</button>
+            <button onclick="deleteRow(${index})">Delete</button>
+          </td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    function updateRow(index) {
+      const name = prompt('Enter new name:', tableData[index].name);
+      const age = prompt('Enter new age:', tableData[index].age);
+      const occupation = prompt('Enter new occupation:', tableData[index].occupation);
+
+      if (name && age && occupation) {
+        tableData[index] = { name, age, occupation };
+        updateTable();
+      }
+    }
+
+    function deleteRow(index) {
+      if (confirm("Are you sure you want to delete " + tableData[index].name + "?")) {
+        tableData.splice(index, 1);
+        updateTable();
+      }
+    }
+  </script>
+</body>
+</html>

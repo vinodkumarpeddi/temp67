@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <body>
+            <script>
+                var a=parseInt(prompt("Enter the number:"));
+                var b=parseInt(prompt("Enter the number:"));
+                var c=parseInt(prompt("Enter the number:"));
+                 var d=b*b-4*a*c;
+                 if(d>0)
+                 {
+                    var r1=(-b+Math.sqrt(d))/2*a;
+                    var r2=(-b-Math.sqrt(d))/2*a;
+                    document.write(r1+"  "+r2);
+                 }
+                 else if(d==0)
+                 {
+                    var r1=-b/2*a;
+                    document.write(r1);
+                 }
+                 else{
+                    var real=-b/2*a;
+                    var img=Math.sqrt(-d)/2*a;
+                    document.write(real+"i"+img);
+                    document.write(real-"i"+img);
+
+                 }
+            </script>
+        </body>
+    </head>
+</html>

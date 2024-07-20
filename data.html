@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Dancing+Script:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <title>Table Creator</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .btn {
+            border: 1px solid black;
+            width: 130px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            background-color: rgb(47, 227, 47);
+            border-radius: 20px;
+            font-family: "Roboto Slab", serif;
+            font-optical-sizing: auto;
+           
+            font-style: normal;
+            position: relative;
+            left: 45%;
+            top: 20px;
+            
+        }
+        .btn:hover{
+            box-shadow: 0 0 3px 3px rgb(181, 176, 174);
+        }
+
+        .table-container {
+            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        table,
+        th,
+        tr,
+        td {
+            border: 3px solid black;
+            width: 1000px;
+            border-collapse: collapse;
+            height: 45px;
+        }
+
+        table {
+            margin-top: 20px;
+        }
+
+        th {
+            background-color: rgb(71, 205, 31);
+            color: white;
+            font-family: "Roboto Slab", serif;
+            font-optical-sizing: auto;
+           
+            font-style: normal;
+        }
+
+        tbody {
+            background-color: rgb(4, 173, 245);
+        }
+
+        #btn2 {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        td {
+            text-align: center;
+            height: 40px;
+            font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+ 
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+    text-transform: capitalize;
+        }
+
+        #btn3 {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        #btn2:hover {
+            background-color: #db3327;
+        }
+
+        #btn3:hover {
+            background-color: #b4d822;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn" id="myButton">click me</button>
+    <div class="table-container"></div>
+    <script>
+        let tabledata = [];
+        let tableCreated = false;
+
+        document.getElementById("myButton").addEventListener("click", myfunction);
+
+        function myfunction() {
+            if (!tableCreated) {
+                createTable();
+                tableCreated = true;
+            } else {
+                promptDataEntry();
+            }
+        }
+
+        function createTable() {
+            const table = document.createElement("table");
+            const tablehead = document.createElement("thead");
+            const tablebody = document.createElement("tbody");
+            tablehead.innerHTML = `
+            <tr><th>Name</th>
+                <th>Roll No</th>
+                <th>Branch</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Year of Study</th>
+                <th>Actions</th>
+                </tr>`;
+            table.appendChild(tablehead);
+            table.appendChild(tablebody);
+            document.getElementsByClassName("table-container")[0].appendChild(table);
+            const initialData = [
+                { Name: "Vinod", Roll_No: "22a91a12b3", Branch: "CSE", Gender: "Male", Age: 20, Year_of_Study: "3rd year" },
+                { Name: "Siva", Roll_No: "22a91a1298", Branch: "IT", Gender: "Male", Age: 20, Year_of_Study: "3rd year" },
+                { Name: "Surya", Roll_No: "23a95a1210", Branch: "AIML", Gender: "Male", Age: 20, Year_of_Study: "3rd year" },
+                { Name: "Harsha", Roll_No: "22a91a12a1", Branch: "CSE", Gender: "Male", Age: 20, Year_of_Study: "3rd year" },
+                { Name: "yeswanth", Roll_No: "22a91a12b4", Branch: "IT", Gender: "Male", Age: 20, Year_of_Study: "3rd year" },
+                { Name: "Manikanta", Roll_No: "22a91a1295", Branch: "CSE", Gender: "Male", Age: 20, Year_of_Study: "3rd year" },
+               
+            ];
+            tabledata = initialData;
+            updateTable();
+        }
+
+        function promptDataEntry() {
+            const Name = prompt("Enter your name:");
+            const Roll_No = prompt("Enter your roll no:");
+            const Branch = prompt("Enter your Branch Name:");
+            const Gender = prompt("Enter your Gender:");
+            const Age = parseInt(prompt("Enter your Age:"));
+            const Year_of_Study = prompt("Enter your Year of Study:");
+            if (Name && Roll_No && Branch && Gender && Age && Year_of_Study) {
+                tabledata.push({ Name, Roll_No, Branch, Gender, Age, Year_of_Study });
+            }
+            updateTable();
+        }
+
+        function updateTable() {
+            const tablebody = document.querySelector("tbody");
+            tablebody.innerHTML = '';
+            tabledata.forEach(function (data, index) {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+      <td>${data.Name}</td>
+      <td>${data.Roll_No}</td>
+      <td>${data.Branch}</td>
+      <td>${data.Gender}</td>
+      <td>${data.Age}</td>
+      <td>${data.Year_of_Study}</td>
+      <td>
+        <button id="btn2" onclick="updateRow(${index})">Update</button>
+        <button id="btn3" onclick="deleteRow(${index})">Delete</button>
+      </td>
+    `;
+                tablebody.appendChild(row);
+            });
+        }
+
+        function updateRow(index) {
+            const Name = prompt("Enter new name:", tabledata[index].Name);
+            const Roll_No = prompt("Enter new roll no:", tabledata[index].Roll_No);
+            const Branch = prompt("Enter new Branch Name:", tabledata[index].Branch);
+            const Gender = prompt("Enter new Gender:", tabledata[index].Gender);
+            const Age = parseInt(prompt("Enter new Age:", tabledata[index].Age));
+            const Year_of_Study = prompt("Enter new Year of Study:", tabledata[index].Year_of_Study);
+            if (Name && Roll_No && Branch && Gender && Age && Year_of_Study) {
+                tabledata[index] = { Name, Roll_No, Branch, Gender, Age, Year_of_Study };
+            }
+            updateTable();
+        }
+
+        function deleteRow(index) {
+            if (confirm("Are you sure you want to delete " + tabledata[index].Name + "?")) {
+                tabledata.splice(index, 1);
+                updateTable();
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<html>
+    <head>
+           <style>
+            body{
+                display: flex;
+                width: 100%;
+                height: 100svh;
+                justify-content: center;
+                align-items: center;
+            }
+            .clock{
+                width: 300px;
+                height: 100px;
+                border: 1px solid black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: red;
+                background-color: black;
+                font-size: 50px;
+                font-weight: 600;
+                border-radius: 20px;
+            }
+           </style>
+    </head>
+    <body>
+        <div class="clock">
+        <div class="hours"></div>
+        <div class="minutes"></div>
+        <div class="seconds"></div></div>
+
+    </body>
+    <script>
+        function fun(){
+            var x=new Date();
+            document.getElementsByClassName("hours")[0].innerHTML = x.getHours()+" :&nbsp;";
+            document.getElementsByClassName("minutes")[0].innerHTML = x.getMinutes()+" :&nbsp;";
+            document.getElementsByClassName("seconds")[0].innerHTML = x.getSeconds();
+        }
+        var address=setInterval(fun,1000);
+    </script>
+</html>

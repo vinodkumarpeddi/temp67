@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grid Game</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to right, #870000, #190a05);
+        }
+        table, tr, td {
+            border: 2px solid rgb(241, 247, 243);
+            border-collapse: collapse;
+        }
+        table {
+            width: 400px;
+            height: 400px; 
+            background-image: linear-gradient(to right, #ff9966, #ff5e62);
+        }
+        td {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .btn_container {
+            display: none;
+            margin-top: 30px;
+            justify-content: space-around;
+            align-items: center;
+            width: 800px;
+            height: 50px;
+           
+        }
+        .container {
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+        button {
+            width: 130px;
+            height: 40px;
+            text-transform: capitalize;
+            font-size: 25px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+        #btn1 {
+            background: linear-gradient(to Right, rgb(255, 60, 0), rgb(206, 80, 101), rgb(65, 146, 228));
+            color: white;
+        }
+        #btn2 {
+            background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+        }
+        #btn3 {
+            background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+        }
+        #btn4 {
+            background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+        }
+        #btn5 {
+            background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: auto;
+        }
+       
+    </style>
+</head>
+<body>
+    <button id="btn1" onclick="createGrid()">Create</button>
+    <div class="container"></div>
+    <div class="btn_container">
+        <button id="btn2" onclick="move('top')">Top</button>
+        <button id="btn3" onclick="move('left')">Left</button>
+        <button id="btn4" onclick="move('right')">Right</button>
+        <button id="btn5" onclick="move('down')">Down</button>
+      
+    </div>
+   
+    <script>
+        let currentRow = 0;
+        let currentCol = 0;
+        let n = 0;
+
+        function createGrid() {
+            n = parseInt(prompt("Enter the Number"));
+            currentRow = 0;
+            currentCol = 0;
+            var container = document.getElementsByClassName("container")[0];
+            container.innerHTML = '';
+            var table = document.createElement("table");
+            for (var i = 0; i < n; i++) {
+                var row = document.createElement("tr");
+                for (var j = 0; j < n; j++) {
+                    var td = document.createElement("td");
+                    row.appendChild(td);
+                }
+                table.appendChild(row);
+            }
+            container.appendChild(table);
+            document.getElementsByClassName("btn_container")[0].style.display = "flex";
+            updateLogoPosition();
+        }
+        function updateLogoPosition() {
+            var table = document.getElementsByTagName("table")[0];
+            for (var i = 0; i < n; i++) {
+                for (var j = 0; j < n; j++) {
+                    table.rows[i].cells[j].innerHTML = '';
+                    table.rows[i].cells[j].style.background= ''; // Reset background color
+                }
+            }
+            var img = document.createElement("img");
+            img.src = "walk.png"; // Replace with your image URL
+            table.rows[currentRow].cells[currentCol].appendChild(img);
+            table.rows[currentRow].cells[currentCol].style.background ="radial-gradient(circle, rgba(248,11,223,1) 6%, rgba(249,246,11,1) 100%)";
+        }
+
+        function move(direction) {
+            if (direction === 'top' && currentRow > 0) {
+                currentRow--;
+            } else if (direction === 'left' && currentCol > 0) {
+                currentCol--;
+            } else if (direction === 'right' && currentCol < n - 1) {
+                currentCol++;
+            } else if (direction === 'down' && currentRow < n - 1) {
+                currentRow++;
+            }
+            else{
+                confirm("You can't move out of Boundary!!");
+            }
+            updateLogoPosition();
+        }
+    </script>
+</body>
+</html>

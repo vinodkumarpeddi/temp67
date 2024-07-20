@@ -1,0 +1,45 @@
+<html>
+    <head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .parent{
+        width: 300px;
+        height: 300px;
+        background-color: red;
+        animation: rrr 2s ease infinite ;
+        transition: all 2s ease;
+    }
+    .parent:hover{
+     
+       border-radius: 100px;
+        cursor: pointer;
+
+    }
+    @keyframes rrr {
+        0%{
+            background-color: red;
+          
+        }
+        100%{
+            background-color: greenyellow;
+            rotate: 360deg;
+            border-radius: 50%;
+            background-image: url(./anime2.jpeg);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            transform-origin: top left;
+            transform: scale(1.2);
+            
+        }  
+    }
+</style>
+    </head>
+    <body>
+        <div class="parent"></div>
+
+    </body>
+</html>

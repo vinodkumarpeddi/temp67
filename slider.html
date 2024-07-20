@@ -1,0 +1,138 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./slick-1.8.1/slick-1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .parent {
+            width: 100%;
+            /* height: 410px; */
+            height: fit-content;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .child{
+            height: 350px;
+            border: 1px solid black;
+            border-radius: 20px;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            height: fit-content;
+        }
+
+        .slick-dots {
+            display: flex;
+            position: absolute;
+            gap: 10px;
+            bottom: -50px;
+            left: 50%;
+        }
+
+        li button {
+            display: none;
+        }
+
+        .slick-prev.slick-arrow {
+            background-color: rgb(65, 225, 44) !important;
+            border-radius: 10px;
+            color: white;
+            margin-left: 10px;
+        }
+
+        .slick-next.slick-arrow {
+            background-color: rgb(46, 160, 171) !important;
+            border-radius: 10px;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .slick-active::marker {
+            color: red;
+            width: 10px !important;
+            height: 10px !important;
+        }
+        li marker {
+            width: 10px !important;
+            height: 10px !important;
+        }
+        .img{
+            width: 60%;
+            height: 100%;
+            border: 1px solid black;
+            border-radius: 30px;
+            overflow: hidden;
+            background-size: 100% !important;
+        }
+        .img img{
+         width: 100%;
+         height: 100%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child"><div class="img"><img src="./anime1.jpeg"></div></div>
+        <div class="child"><div class="img"><img src="./anime2.jpeg"></div></div>
+        <div class="child"><div class="img"><img src="./anime3.jpeg"></div></div>
+        <div class="child"><div class="img"><img src="./anime4 - Copy.webp"></div></div>
+        <div class="child"><div class="img"><img src="./anime6.jpeg"></div></div>
+        <div class="child"><div class="img"><img src="./anime7.jpeg"></div></div>
+        <div class="child"><div class="img"><img src="./anime8.jpeg"></div></div>
+        <div class="child"><div class="img"><img src="./anime9.jpeg"></div></div>
+    </div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $('.parent').slick({
+            dots: true,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+           // prevArrow:`<button class="prev_button"><</button>`,
+            // nextArrow:`<button class="prev_button"><</button>`,
+           responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                      //  slidesToScroll: 3,
+                        
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        //slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 440,
+                    settings: {
+                        slidesToShow: 1,
+                        //slidesToScroll: 1
+                    }
+                }
+               
+            ]
+        });
+    </script>
+</body>
+
+</html>

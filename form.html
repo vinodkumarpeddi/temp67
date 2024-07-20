@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        label {
+            font-size: 20px;
+        }
+
+        th,
+        td,
+        tr {
+            font-family: "Baskervville SC", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="form.css">
+
+    <title>Form</title>
+</head>
+
+<body>
+    <div class="parent">
+        <h3>Person Details</h3>
+    <table class="table1">
+        <tr>
+            <td><label>First name :</label></td>
+            <td><input class="in" type="text" placeholder="Enter first name" onchange="first()"></td>
+        </tr>
+        <tr>
+            <td><label>Second name :</label></td>
+            <td><input class="in" type="text" placeholder="Enter second name"  onchange="second()"></td>
+        </tr>
+        <tr>
+            <td><label>DoB & Age :</label></td>
+            <td><input class="in" type="date" placeholder="Enter date of birth and age"  onchange="DOB()"></td>
+        </tr>
+        <tr>
+            <td><label>Father name :</label></td>
+            <td><input class="in" type="text" placeholder="Enter father's name"  onchange="father()"></td>
+        </tr>
+        <tr>
+            <td><label>Mother name :</label></td>
+            <td><input class="in" type="text" placeholder="Enter mother's name"  onchange="mother()"></td>
+        </tr>
+        <tr>
+            <td><label>Address :</label></td>
+            <td><textarea class="in" placeholder="Enter Your Address"  onchange="address()"></textarea></td>
+        </tr>
+        <tr>
+            <td><label>Gender :</label></td>
+            <td>
+                <input type="radio" name="gender" id="male"  onchange="gender()">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female"   onchange="gender()">
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="others"   onchange="gender()">
+                <label for="others">Others</label>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Certifications :</label></td>
+            <td><input type="file"   onchange="certication()"></td>
+        </tr>
+
+
+    </table>
+    <h3>Academic details</h3>
+    <table class="table2">
+        <tr>
+            <th>Name of Institute</th>
+            <th>year of pass</th>
+            <th>percentage</th>
+            <th>place</th>
+        </tr>
+        <tr>
+            <td class="info">S.S.C</td>
+            <td class="info1"><input type="date"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td class="info">Inter</td>
+            <td><input type="date"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td class="info">B.Tech</td>
+            <td><input type="date"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+        </tr>
+
+    </table>
+    <br>
+    <table class="table3">
+        <tr>
+            <td class="sk">Skills :</td>
+            <td>
+                <ul>
+                    <li>java Programming</li>
+                    <li>Web Development</li>
+                    <li>Problem Solving</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="sk">Hobbies :</td>
+            <td>
+                <ul>
+                    <li>Cricket</li>
+                    <li>Bike Riding</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="sk">Profile Pic :</td>
+            <td><input type="file"></td>
+        </tr>
+        <tr>
+            <tD class="sk">Badges :</tD>
+            
+          
+        </tr>
+        <tr>
+            <tD class="sk">Description :</tD>
+          
+        </tr>
+
+
+    </table>
+    </div>
+    <script src="form.js"></script>
+</body>
+
+</html>

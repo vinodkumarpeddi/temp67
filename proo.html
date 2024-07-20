@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        .sub {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            opacity: 0;
+            transform: translateY(80px);
+            transition: opacity 2s, transform 1s;
+        }
+        .sub:nth-child(2),.sub:nth-child(4),.sub:nth-child(6),.sub:nth-child(8) {
+            background-color: lightgreen;
+        }
+        .sub:nth-child(1),.sub:nth-child(3),.sub:nth-child(5),.sub:nth-child(7) {
+            background-color:orange;
+        }
+        .sub:nth-child(9),.sub:nth-child(11),.sub:nth-child(13),.sub:nth-child(15) {
+            background-color: brown;
+        }
+        .sub:nth-child(10),.sub:nth-child(12),.sub:nth-child(14),.sub:nth-child(16) {
+            background-color:orange;
+        }
+        .sub.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+    </div>
+    <script>
+        const elements = document.querySelectorAll('.sub');
+
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScroll() {
+            elements.forEach((el, index) => {
+                if (isElementInViewport(el)) {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 150); // delay each element's animation by 150ms
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
+    </script>
+</body>
+</html>
